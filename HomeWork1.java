@@ -1,155 +1,251 @@
 package Module2;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 /**
  * Created by Linkin on 06.02.2017.
  */
 public class HomeWork1 {
     public static void main(String[] args) {
-        int[] array = {90, -247, 44, 674, 3234, -57, 666, -777, 88, 11};
-        double[] doubles = {1.5, -2.554, 5.66, 8.3, 6.66, 7.77, 8.88, 9.99, 100.1, 42.65};
+        int[] arrayOfIntElements = {90, -247, 44, 674, 3234, -57, 666, -777, 88, 0};
+        double[] arrayOfDoubleEllements = {1.5, -2.554, 5.66, 8.3, 6.66, 7.77, 8.88, 9.99, 100.1, 42.65};
         HomeWork1 s = new HomeWork1();
-        s.sum(array);
-        s.sum(doubles);
-        s.min(array);
-        s.min(doubles);
-        s.max(array);
-        s.max(doubles);
-        s.maxPositive(array);
-        s.maxPositive(doubles);
-        s.multiplication(array);
-        s.multiplication(doubles);
-        s.secondLargest(array);
-        s.secondLargest(doubles);
-        s.modulus(array);
-        s.modulus(doubles);
+        System.out.println(s.sum(arrayOfIntElements));
+        System.out.println(s.sum(arrayOfDoubleEllements));
+        System.out.println(s.min(arrayOfIntElements));
+        System.out.println(s.min(arrayOfDoubleEllements));
+        System.out.println(s.max(arrayOfIntElements));
+        System.out.println(s.max(arrayOfDoubleEllements));
+        System.out.println(s.maxPositive(arrayOfIntElements));
+        System.out.println(s.maxPositive(arrayOfDoubleEllements));
+        System.out.println(s.multiplication(arrayOfIntElements));
+        System.out.println(s.multiplication(arrayOfDoubleEllements));
+        System.out.println(s.secondLargest(arrayOfIntElements));
+        System.out.println(s.secondLargest(arrayOfDoubleEllements));
+        System.out.println(s.modulus(arrayOfIntElements));
+        System.out.println(s.modulus(arrayOfDoubleEllements));
     }
-    public void sum(int array[]) {
-        int summ = 0;
-        for (int i = 0; i < array.length; i++) {
-            summ += array[i];
-        }
-        System.out.println(" SummInt= " + summ);
-        ;
-    }
-    public void sum(double doubles[]) {
-        double summ = 0;
-        for (int i = 0; i < doubles.length; i++) {
-            summ += doubles[i];
-        }
-        System.out.println(" Summ Double= " + summ);
-        ;
-    }
-    public void min(int array[]) {
-        int min = array[0];
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] < min) {
-                min = array[i];
-            }
-        }
-        System.out.println(" MinInt: " + min);
-    }
-    public void min(double doubless[]) {
-        double min = doubless[0];
-        for (int i = 0; i < doubless.length; i++) {
-            if (doubless[i] < min) {
-                min = doubless[i];
-            }
-        }
-        System.out.println(" MinDouble: " + min);
-    }
-    public void max(int array[]) {
-        int max = array[0];
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] > max) {
-                max = array[i];
-            }
-        }
-        System.out.println(" MaxInt: " + max);
-    }
-    public void max(double doubless[]) {
-        double max = doubless[0];
-        for (int i = 1; i < doubless.length; i++) {
-            if (doubless[i] > max) {
-                max = doubless[i];
-            }
-        }
-        System.out.println(" MaxDouble: " + max);
-    }
-    public void maxPositive(int array[]) {
-        int max = 0;
-        for (int i = 0; i < array.length; i++) {
 
-            if ((array[i] >= 0) && (array[i] > max)) {
-                max = array[i];
-            }
+    public int sum(int arrayOfIntElements[]) {
+        if (arrayOfIntElements == null) {
+            throw new IllegalArgumentException("Array must not be null.");
         }
-                System.out.println(" MaxPositiveInt: " + max);
+        if (arrayOfIntElements.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        int summOfElementInArray = 0;
+        for (int i = 0; i < arrayOfIntElements.length; i++) {
+            summOfElementInArray += arrayOfIntElements[i];
+        }
+        return summOfElementInArray;
     }
-    public void maxPositive(double doubles[]) {
-        double max = 0.0;
-        for (int i = 0; i < doubles.length; i++) {
 
-            if ((doubles[i] >= 0) && (doubles[i] > max)) {
-                max = doubles[i];
+    public double sum(double arrayOfDoubleElements[]) {
+        if (arrayOfDoubleElements == null) {
+            throw new IllegalArgumentException("Array must not be null");
+        }
+        if (arrayOfDoubleElements.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        double summOfElementInArray = 0;
+        for (int i = 0; i < arrayOfDoubleElements.length; i++) {
+            summOfElementInArray += arrayOfDoubleElements[i];
+        }
+        return summOfElementInArray;
+    }
+
+    int min(int arrayOfIntElements[]) {
+        if (arrayOfIntElements == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        if (arrayOfIntElements.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        int minNumberInArray = arrayOfIntElements[0];
+        for (int i = 1; i < arrayOfIntElements.length; i++) {
+            if (arrayOfIntElements[i] < minNumberInArray) {
+                minNumberInArray = arrayOfIntElements[i];
             }
         }
-        System.out.println(" MaxPositiveDouble: " + max);
+        return minNumberInArray;
     }
-    public void multiplication (int array[]){
-        long multi=1;
-        for (int i = 0; i <array.length ; i++) {
-            multi*=array[i];
+
+    double min(double arrayOfDoubleElementss[]) {
+        if (arrayOfDoubleElementss == null) {
+            throw new IllegalArgumentException("Array must not be null.");
         }
-        System.out.println(" MultiplicationInt: "+multi);
-    }
-    public void multiplication (double doubles[]){
-        double multi=1;
-        for (int i = 0; i <doubles.length ; i++) {
-            multi*=doubles[i];
+        if (arrayOfDoubleElementss.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
         }
-        System.out.println(" MultiplicationDouble: "+multi);
-    }
-    public void secondLargest (int array[]){
-        int max=0;
-        int max2=0;
-        for (int i = 0; i <array.length ; i++) {
-            if (array[i] > max) {
-                max = array[i];
-            } else if ((array[i]>max2)&&(max2<max))
-                max2=array[i];
+        double minNumberInArray = arrayOfDoubleElementss[0];
+        for (int i = 0; i < arrayOfDoubleElementss.length; i++) {
+            if (arrayOfDoubleElementss[i] < minNumberInArray) {
+                minNumberInArray = arrayOfDoubleElementss[i];
+            }
         }
-        System.out.println(" SecondLargestInt: "+max2);
+        return minNumberInArray;
     }
-    public void secondLargest (double doubles[]){
-        double max=0;
-        double max2=0;
-        for (int i = 0; i <doubles.length ; i++) {
-            if (doubles[i] > max) {
-                max = doubles[i];
-            } else if ((doubles[i]>max2)&&(max2<max))
-                max2=doubles[i];
+
+    int max(int arrayOfIntElements[]) {
+        if (arrayOfIntElements == null) {
+            throw new IllegalArgumentException("Array must not be null.");
         }
-        System.out.println(" SecondLargestDouble: "+max2);
+        if (arrayOfIntElements.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        int maxNumberInArray = arrayOfIntElements[0];
+        for (int i = 1; i < arrayOfIntElements.length; i++) {
+            if (arrayOfIntElements[i] > maxNumberInArray) {
+                maxNumberInArray = arrayOfIntElements[i];
+            }
+        }
+        return maxNumberInArray;
     }
-    public void modulus (int array[]){
-        int x;
-        int z;
-        int index=array.length-1;
-        x=array[0]%array[index];
-        z=(array[index]%array[0]);
-        System.out.println(" Modulus of first and last  int element :" +x);
-        System.out.println(" Modulus of last and first  int element :" +z);
+
+    double max(double arrayOfDoubleElementss[]) {
+        if (arrayOfDoubleElementss == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        if (arrayOfDoubleElementss.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        double maxNumberInArray = arrayOfDoubleElementss[0];
+        for (int i = 1; i < arrayOfDoubleElementss.length; i++) {
+            if (arrayOfDoubleElementss[i] > maxNumberInArray) {
+                maxNumberInArray = arrayOfDoubleElementss[i];
+            }
+        }
+        return maxNumberInArray;
     }
-    public void modulus (double doubles[]){
-        double x;
-        double z;
-        int index=doubles.length-1;
-        x=doubles[0]%doubles[index];
-        z=(doubles[index]%doubles[0]);
-        System.out.println(" Modulus of first and last  double element  :" +x);
-        System.out.println(" Modulus of last  and first  double element :" +z);
+
+    int maxPositive(int arrayOfIntElements[]) {
+        if (arrayOfIntElements == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        if (arrayOfIntElements.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        int maxPositiveNumberInArray = 0;
+        for (int i = 0; i < arrayOfIntElements.length; i++) {
+
+            if (arrayOfIntElements[i] >= 0 && arrayOfIntElements[i] > maxPositiveNumberInArray) {
+                maxPositiveNumberInArray = arrayOfIntElements[i];
+            }
+        }
+        return maxPositiveNumberInArray;
+    }
+
+    double maxPositive(double arrayOfDoubleElements[]) {
+        if (arrayOfDoubleElements == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        if (arrayOfDoubleElements.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        double maxPositiveNumberInArray = 0.0;
+        for (int i = 0; i < arrayOfDoubleElements.length; i++) {
+
+            if (arrayOfDoubleElements[i] >= 0 && arrayOfDoubleElements[i] > maxPositiveNumberInArray) {
+                maxPositiveNumberInArray = arrayOfDoubleElements[i];
+            }
+        }
+        return maxPositiveNumberInArray;
+    }
+
+    long multiplication(int arrayOfIntElements[]) {
+        if (arrayOfIntElements == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        if (arrayOfIntElements.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        long multiplicationOfNumberInArray = 1;
+        for (int i = 0; i < arrayOfIntElements.length; i++) {
+            multiplicationOfNumberInArray *= arrayOfIntElements[i];
+        }
+        return multiplicationOfNumberInArray;
+    }
+
+    double multiplication(double arrayOfDoubleElements[]) {
+        if (arrayOfDoubleElements == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        if (arrayOfDoubleElements.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        double multiplicationOfNumberInArray = 1;
+        for (int i = 0; i < arrayOfDoubleElements.length; i++) {
+            multiplicationOfNumberInArray *= arrayOfDoubleElements[i];
+        }
+        return multiplicationOfNumberInArray;
+    }
+
+    int secondLargest(int arrayOfIntElements[]) {
+        if (arrayOfIntElements == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        if (arrayOfIntElements.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        int maxNumberInArray = 0;
+        int secondLargestElementInArray = 0;
+        for (int i = 0; i < arrayOfIntElements.length; i++) {
+            if (arrayOfIntElements[i] > maxNumberInArray) {
+                maxNumberInArray = arrayOfIntElements[i];
+            } else if ((arrayOfIntElements[i] > secondLargestElementInArray) && (secondLargestElementInArray < maxNumberInArray))
+                secondLargestElementInArray = arrayOfIntElements[i];
+        }
+        return secondLargestElementInArray;
+    }
+
+    double secondLargest(double arrayOfDoubleElements[]) {
+        if (arrayOfDoubleElements == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        if (arrayOfDoubleElements.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        double maxNumberInArray = 0;
+        double secondLargestElementInArray = 0;
+        for (int i = 0; i < arrayOfDoubleElements.length; i++) {
+            if (arrayOfDoubleElements[i] > maxNumberInArray) {
+                maxNumberInArray = arrayOfDoubleElements[i];
+            } else if ((arrayOfDoubleElements[i] > secondLargestElementInArray) && (secondLargestElementInArray < maxNumberInArray))
+                secondLargestElementInArray = arrayOfDoubleElements[i];
+        }
+        return secondLargestElementInArray;
+    }
+
+    int modulus(int arrayOfIntElements[]) {
+        if (arrayOfIntElements == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        if (arrayOfIntElements.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        int modulusFirstAndLastElementInArray;
+        int index = arrayOfIntElements.length - 1;
+        if (arrayOfIntElements[index] == 0) {
+            throw new IllegalArgumentException("Last element is 0. Cant take modulus");
+        } else {
+            modulusFirstAndLastElementInArray = arrayOfIntElements[0] % arrayOfIntElements[index];
+        }
+        return modulusFirstAndLastElementInArray;
+    }
+
+    double modulus(double arrayOfDoubleElements[]) {
+        if (arrayOfDoubleElements == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        if (arrayOfDoubleElements.length == 0) {
+            throw new IllegalArgumentException("The array is empty");
+        }
+        double modulusFirstAndLastElementInArray;
+        int index = arrayOfDoubleElements.length - 1;
+        if (arrayOfDoubleElements[index] == 0) {
+            throw new IllegalArgumentException("Last element is 0. Cant take modulus");
+        } else {
+            modulusFirstAndLastElementInArray = arrayOfDoubleElements[0] % arrayOfDoubleElements[index];
+
+        }
+        return modulusFirstAndLastElementInArray;
     }
 }
